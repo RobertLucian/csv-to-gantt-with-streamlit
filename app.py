@@ -52,7 +52,7 @@ def load_csv(data):
 data_frames = []
 if uploaded_files:
     for uploaded_file in uploaded_files:
-        df = load_csv(uploaded_file.getvalue().decode("utf-8"))
+        df = load_csv(uploaded_file.getvalue().decode("utf-8", errors="replace"))
         if df is not None:
             data_frames.append((uploaded_file.name, df))
 elif csv_text:
